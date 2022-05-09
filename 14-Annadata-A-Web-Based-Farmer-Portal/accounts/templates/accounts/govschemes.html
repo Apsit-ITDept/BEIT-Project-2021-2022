@@ -1,0 +1,49 @@
+{% extends 'accounts/FarmerPage.html' %}
+{% block css %}
+{% endblock %}
+{% block body %}
+
+<!--{% if dic %}
+    <a href="predictMPG"><button class="btn btn-primary cart">BACK <-</button></a>
+	<h4 class="card-title">Schemes</h4>
+	<br> -->
+
+         <div class="container">
+             <div class="row ">
+              {% for i in dic %}
+
+                     <div class="col-sm-4">
+                         <div class="card shadow-lg mb-2 bg-white rounded ml-4" style="width: 18rem;">
+<!--                             <img class="card-img-top" src="/media/{{i.img}}" style="height:200px;" alt="Card image">-->
+                             <div class="card-body">
+                                 <h4>Name: </h4>
+                                 <br>
+                                 <h4>{{i.scheme_name}}</h4>
+                                 <br>
+                                 <h4>Link to scheme:</h4>
+                                 <br>
+                                 <h4>{{i.info}}</h4>
+                             </div>
+                             <form action="/schemepmkisan" method="post">
+                                 {% csrf_token %}
+                                 <input type="hidden" name="schemename" value="{{i.scheme_name}}" >
+                                 <button type="submit" value="submit" class="btn btn-success scart">View Scheme</button>
+
+                             </form>
+
+                       </div>
+                    </div>
+
+               {% endfor %}
+
+         </div>
+
+
+
+    </div>
+
+	{% endif %}
+
+{% endblock %}
+{% block js %}
+{% endblock %}

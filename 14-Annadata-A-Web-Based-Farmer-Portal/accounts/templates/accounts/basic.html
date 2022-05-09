@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <style>
+    .Homepage .btn {
+      position: absolute;
+      top: 60%;
+      left: 65%;
+      transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      background-color: #28a745;
+      color: white;
+      font-size: 20px;
+      padding: 15px 27px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      text-align: center;
+    }
+
+    .Homepage .btn1 {
+      position: absolute;
+      top: 60%;
+      left: 75%;
+      transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      background-color: #28a745;
+      color: white;
+      font-size: 20px;
+      padding: 15px 27px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      text-align: center;
+    }
+    #message {
+      display:none;
+      background: #f1f1f1;
+      color: #000;
+      position: relative;
+      padding: 20px;
+      margin-top: 10px;
+    }
+
+    #farmImg {
+      height: 100%;
+      width: 100%;
+    }    
+
+    
+    button {
+      background-color: blue;
+      width: 200px;
+      font-size: 20px;
+      padding: 10px;
+      border-radius: 5px;
+      border: 3px solid yellow;
+      color: white;
+      cursor: pointer;
+    }
+
+    body {
+      <!--background-image: url('/static/accounts/walll.jpg');
+      background-repeat: no-repeat;
+      max-width: 100%;
+      max-height: 100%;-->
+    }
+  </style>
+<div id="google_translate_element_id"></div>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element_id');
+}
+</script>
+
+<script type="text/javascript">
+  (function(){var gtConstEvalStartTime = new Date();/*
+
+ Copyright The Closure Library Authors.
+ SPDX-License-Identifier: Apache-2.0
+*/
+function d(b){var a=document.getElementsByTagName("head")[0];a||(a=document.body.parentNode.appendChild(document.createElement("head")));a.appendChild(b)}function _loadJs(b){var a=document.createElement("script");a.type="text/javascript";a.charset="UTF-8";a.src=b;d(a)}function _loadCss(b){var a=document.createElement("link");a.type="text/css";a.rel="stylesheet";a.charset="UTF-8";a.href=b;d(a)}function _isNS(b){b=b.split(".");for(var a=window,c=0;c<b.length;++c)if(!(a=a[b[c]]))return!1;return!0}
+function _setupNS(b){b=b.split(".");for(var a=window,c=0;c<b.length;++c)a.hasOwnProperty?a.hasOwnProperty(b[c])?a=a[b[c]]:a=a[b[c]]={}:a=a[b[c]]||(a[b[c]]={});return a}window.addEventListener&&"undefined"==typeof document.readyState&&window.addEventListener("DOMContentLoaded",function(){document.readyState="complete"},!1);
+if (_isNS('google.translate.Element')){return}(function(){var c=_setupNS('google.translate._const');c._cest = gtConstEvalStartTime;gtConstEvalStartTime = undefined;c._cl='en';c._cuc='googleTranslateElementInit';c._cac='';c._cam='';c._ctkk='443432.3380506509';var h='translate.googleapis.com';var s=(true?'https':window.location.protocol=='https:'?'https':'http')+'://';var b=s+h;c._pah=h;c._pas=s;c._pbi=b+'/translate_static/img/te_bk.gif';c._pci=b+'/translate_static/img/te_ctrl3.gif';c._pli=b+'/translate_static/img/loading.gif';c._plla=h+'/translate_a/l';c._pmi=b+'/translate_static/img/mini_google.png';c._ps=b+'/translate_static/css/translateelement.css';c._puh='translate.google.com';_loadCss(c._ps);_loadJs(b+'/translate_static/js/element/main.js');})();})();
+
+</script>
+
+  <title>Annadata</title>
+</head>
+
+<body>
+	
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <img src="/static/accounts/download11.png" height="40" width="40">
+    <a class="navbar-brand" href="#">Annadata</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+	<li class="nav-item active">
+          <a class="nav-link" href="\feedback">Feedback <span class="sr-only">(current)</span></a>
+        </li>
+	 </li>
+	<li class="nav-item active">
+          <a class="nav-link" href="\user_resetpassword">Password Reset Kara <span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+
+      <button type="submit" class="btn btn-success " data-toggle="modal" data-target="#signupModal2">Login</button>
+      <button type="submit" class="btn btn-success ml-2" data-toggle="modal" data-target="#signupModal1">Register</button>
+    </div>
+  </nav>
+  <!--navbar ends-->
+
+  {% for message in messages %}
+  <div class="alert alert-{{ message.tags }} mb-0 alert-dismissible fade show" role="alert">
+    <strong>Message: </strong>{{ message }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  {% endfor %}
+<img src="static/accounts/walll.jpg" height="865" width="100%">
+  <!--registration model begins-->
+  <div class="modal fade" id="signupModal1" tabindex="-1" role="dialog" aria-labelledby="signupModal1"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel1">Register</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form method='post' action="/signup">
+            {% csrf_token %}
+            <!--row one starts-->
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <input type="text" class="form-control" id="uname" name="uname" value="" required placeholder="Enter Username">
+              </div>
+              <div class="form-group col-md-6">
+                <input type="email" class="form-control" id="email" name="email" value="" required placeholder="Enter Email">
+              </div>
+            </div>
+            <!--row one ends-->
+            <!--row two starts-->
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <input type="text" class="form-control" id="fname" name="fname" required placeholder="Enter First Name">
+              </div>
+              <div class="form-group col-md-6">
+                <input type="text" class="form-control" id="lname" name="lname" required placeholder="Enter Last Name">
+              </div>
+            </div>
+            <!--row two ends-->
+            <!--row three starts-->
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <input type="tel" class="form-control" id="phone" name="phone" required
+                  placeholder="Enter Mobile Number" pattern="^\d{10}$">
+              </div>
+            </div>
+            <!--row three ends-->
+            <div class="form-group">
+              <select id="town" name="town" class="form-control" required placeholder="Select District">
+                <option disabled="true"> ---select District--- </option>
+                <option value="Ahmednagar">Ahmednagar</option>
+                <option value="Akola">Akola</option>
+                <option value="Amravati">Amravati</option>
+                <option value="Aurangabad">Aurangabad</option>
+                <option value="Beed">Beed</option>
+                <option value="Bhandara">Bhandara</option>
+                <option value="Buldhana">Buldhana</option>
+                <option value="Chandrapur">Chandrapur</option>
+                <option value="Dhule">Dhule</option>
+                <option value="Gadchiroli">Gadchiroli</option>
+                <option value="Gondia">Gondia</option>
+                <option value="Hingoli">Hingoli</option>
+                <option value="Jalgaon">Jalgaon</option>
+                <option value="Jalna">Jalna</option>
+                <option value="Kolhapur">Kolhapur</option>
+                <option value="Latur">Latur</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Nagpur">Nagpur</option>
+                <option value="Nanded">Nanded</option>
+                <option value="Nandurbar">Nandurbar</option>
+                <option value="Nashik">Nashik</option>
+                <option value="Osmanabad">Osmanabad</option>
+                <option value="Palghar">Palghar</option>
+                <option value="Parbhani">Parbhani</option>
+                <option value="Pune">Pune</option>
+                <option value="Raigad">Raigad</option>
+                <option value="Ratnagiri">Ratnagiri</option>
+                <option value="Sangli">Sangli</option>
+                <option value="Satara">Satara</option>
+                <option value="Sindhudurg">Sindhudurg</option>
+                <option value="Solapur">Solapur</option>
+                <option value="Thane">Thane</option>
+                <option value="Wardha">Wardha</option>
+                <option value="Washim">Washim</option>
+                <option value="Yavatmal">Yavatmal</option>
+
+              </select>
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control" id="pass1" name="pass1" required placeholder="Enter Password">
+              <span id='message_pass'></span>
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control" id="pass2" name="pass2" required
+                placeholder="Enter Password Again">
+                <span id='message_confirm_pass'></span>
+            </div>
+            <button type="submit" class="btn btn-success">Sign in</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--registrationmodal ends-->
+  <!--login model begins-->
+  <div class="modal fade" id="signupModal2" tabindex="-1" role="dialog" aria-labelledby="signupModal2"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel12">Login</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="/login" method='post'>
+            {% csrf_token %}
+
+            <div class="form-group row">
+              <label for="uname1" class="col-sm-2 col-form-label">Username</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" name="uname1" id="uname1" required>
+              </div>
+            </div>
+
+
+            <div class="form-group row">
+              <label for="pass2" class="col-sm-2 col-form-label">Password</label>
+              <div class="col-sm-10">
+                <input type="password" class="form-control" id="pass3" name="pass3" required>
+              </div>
+            </div>
+
+            <div>
+              <button type="submit" class="btn btn-success" id="Login" name="login">Login</button>
+            </div>
+          </form>
+
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!--login modal ends-->
+
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+  <script>
+
+    var myInput = document.getElementById("pass1");
+    var myInpt2 = document.getElementById("pass2");
+    document.getElementById("message_pass").style.visibility = "hidden";
+    var length = document.getElementById("length");
+
+    // When the user clicks on the password field, show the message box
+    myInput.onfocus = function() {
+      document.getElementById("message").style.display = "block";
+    }
+
+    // When the user clicks outside of the password field, hide the message box
+    myInput.onblur = function() {
+      document.getElementById("message").style.display = "none";
+    }
+
+    // When the user starts to type something inside the password field
+    myInput.onkeyup = function() {
+      document.getElementById("message_pass").style.visibility = "visible";
+      document.getElementById("message_confirm_pass").style.visibility = "visible";
+      if(myInput.value.length > 6) {
+        document.getElementById('message_pass').style.color = 'green';
+        document.getElementById('message_pass').innerHTML = 'good to go!';
+      } else {
+        document.getElementById('message_pass').style.color = 'red';
+        document.getElementById('message_pass').innerHTML = 'minimum 6 characters required';
+      }
+    }
+    myInpt2.onkeyup = function() {
+      if (document.getElementById('pass1').value ==
+        document.getElementById('pass2').value) {
+        document.getElementById('message_confirm_pass').style.color = 'green';
+        document.getElementById('message_confirm_pass').innerHTML = 'matching';
+      } else {
+        document.getElementById('message_confirm_pass').style.color = 'red';
+        document.getElementById('message_confirm_pass').innerHTML = 'not matching';
+      }
+    }
+  </script>
+</body>
+
+</html>

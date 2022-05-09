@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <style>
+    #customers {
+      font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    #customers td,
+    #customers th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+
+    #customers tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    #customers tr:hover {
+      background-color: #ddd;
+    }
+
+    #customers th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #4CAF50;
+      color: white;
+    }
+  </style>
+
+
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+
+<body>
+  <table id="customers">
+    <tr>
+      <th>User id</th>
+      <th>Username</th>
+      <th>Phone</th>
+      <th>Town</th>
+    </tr>
+    {% for i in userdata %}
+    <tr>
+      <td>{{i.user}}</td>
+      <td>{{i.username}}</td>
+      <td>{{i.phone}}</td>
+      <td>{{i.town}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</body>
+
+</html>

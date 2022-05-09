@@ -1,0 +1,110 @@
+{% extends 'accounts/FarmerPage.html' %}
+{% block css %}
+{% endblock %}
+{% block body %}
+
+
+
+{% if getMethodBoolean %}
+	{{a}}
+<div class="container w-50 mt-4 " xmlns:color="http://www.w3.org/1999/xhtml">
+<form method="post" enctype="multipart/form-data" action="predictCrops" class="shadow-lg p-3 mb-5 bg-white rounded">
+     {% csrf_token %}
+      <div class="form-group">
+            <label for="town" >Select District</label>
+       <select id="town"  class="form-control" name="District4" id="District4" required>
+           <option disabled="true"> ---select District--- </option>
+ 	<option value="Ahmednagar">Ahmednagar</option>
+	<option value="Akola">Akola</option>
+	<option value="Amravati">Amravati</option>
+	<option value="Aurangabad">Aurangabad</option>
+	<option value="Beed">Beed</option>
+	<option value="Buldhana">Buldhana</option>
+	<option value="Chandrapur">Chandrapur</option>
+	<option value="Dhule">Dhule</option>
+	<option value="Gadchiroli">Gadchiroli</option>
+	<option value="Hingoli">Hingoli</option>
+	<option value="Jalgaon">Jalgaon</option>
+	<option value="Kolhapur">Kolhapur</option>
+	<option value="Latur">Latur</option>
+	<option value="Nagpur">Nagpur</option>
+	<option value="Nanded">Nanded</option>
+	<option value="Nandurbar">Nandurbar</option>
+	<option value="Nashik">Nashik</option>
+	<option value="Osmanabad">Osmanabad</option>
+	<option value="Parbhani">Parbhani</option>
+	<option value="Pune">Pune</option>
+	<option value="Sangli">Sangli</option>
+	<option value="Satara">Satara</option>
+	<option value="Solapur">Solapur</option>
+	<option value="Wardha">Wardha</option>
+	<option value="Washim">Washim</option>
+	<option value="Yavatmal">Yavatmal</option>
+       </select>
+     </div>
+    <div class="form-check">
+       <input class="form-check-input" type="radio" name="SeasonInput" id="KharifSeason" value="1">
+          <label class="form-check-label" for="KharifSeason">Kharif</label>
+    </div>
+    <div class="form-check">
+       <input class="form-check-input" type="radio" name="SeasonInput" id="RabbiSeason" value="2">
+          <label class="form-check-label" for="RabbiSeason">Rabbi</label>
+    </div>
+    <div class="form-check">
+       <input class="form-check-input" type="radio" name="SeasonInput" id="NoSeason" value="3">
+          <label class="form-check-label" for="NoSeason">No Sesson</label>
+    </div>
+    <div class="form-check">
+       <input class="form-check-input" type="radio" name="SeasonInput" id="AllCrops" value="4" checked>
+          <label class="form-check-label" for="AllCrops">Predict All Crops</label>
+    </div>
+    <button type="submit" class="btn btn-success mt-2">Submit</button>
+</form>
+{% endif %}
+{% if season %}
+   <a href="predictCrops"><button class="btn btn-primary cart">BACK <-</button></a>
+	<h4 class="card-title">List of crops for {{district}} for {{season}}</h4>
+	<br>
+
+         <div class="container">
+             <div class="row ">
+              {% for i in found %}
+               <div class="col-sm-4">
+                     <div class="card shadow-lg mb-2 bg-white rounded ml-4" style="width: 18rem;">
+                        <img class="card-img-top" src="/media/{{i.img}}" style="height:200px;" alt="Card image">
+                        <div class="card-body" id="colorid">
+                           <form action="viewcrop" method="post">
+                                    {% csrf_token %}
+                           <h4 class="card-title">{{i.crop_name}}</h4>
+                              <h5>Production: {{i.crop_production}} metric ton/ha</h5>
+                                 {% if i.danger %}
+                                 <h4 style="color:red;" class="card-title">crop taken</h4>
+                                 <h4 style="color:red;" class="card-title">{{i.count}}</h4>
+                                 {% endif %}
+                                 {% if i.safe %}
+                                 <h4 style="color:blue;" class="card-title">crop taken</h4>
+                                 <h4 style="color:blue;" class="card-title">{{i.count}}</h4>
+                                 {% endif %}
+                           <input type="hidden" value="{{i.crop_name}}" name="crop-name">
+                                 <button type="submit" value="submit" id="qv{{i.id}}" class="btn btn-success scart">View Crop</button>
+                           </form>
+                           <br>
+                           <form action="willplant" method="post">
+                                 {% csrf_token %}
+                                 <input type="hidden" value="{{i.crop_name}}" name="crop-name">
+                                 <input type="hidden" value="{{district}}" name="district">
+                                 <button id="" class="btn btn-success cart">Will Plant!!!</button>
+                           </form>
+                        </div>
+                  </div>
+               </div>
+
+               {% endfor %}
+
+         </div>
+	{% endif %}
+
+
+{% endblock %}
+{% block js %}
+{% endblock %}
