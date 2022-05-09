@@ -1,0 +1,3 @@
+1.add 	Campfire_anim	 model to the scene
+2.drag 	Campfire_controller	 to model in Hierarchy list
+3.that's all
