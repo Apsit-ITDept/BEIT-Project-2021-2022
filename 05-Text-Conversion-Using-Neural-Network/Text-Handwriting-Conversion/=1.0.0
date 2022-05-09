@@ -1,5 +1,0 @@
-Collecting scipy
-  Using cached scipy-1.7.3-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (39.3 MB)
-Requirement already satisfied: numpy<1.23.0,>=1.16.5 in /home/fastboi/Projects/Text-Handwriting-Conversion/env/lib/python3.8/site-packages (from scipy) (1.19.5)
-Installing collected packages: scipy
-Successfully installed scipy-1.7.3

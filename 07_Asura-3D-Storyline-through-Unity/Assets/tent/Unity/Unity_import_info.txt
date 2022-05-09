@@ -1,2 +1,0 @@
-just push the file into the Unity content manager
-hold - drag - drop
