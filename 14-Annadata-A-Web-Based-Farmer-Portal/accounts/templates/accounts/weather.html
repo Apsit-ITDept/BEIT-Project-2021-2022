@@ -1,0 +1,52 @@
+{% extends 'accounts/FarmerPage.html' %}
+{% block css %}
+{% endblock %}
+{% block body %}
+
+
+             <div class="container w-25 ">
+                 <form method="post" action="/weather" autocomplete="off" class="shadow-lg p-3 mb-5 bg-white rounded">
+                         {% csrf_token %}
+                         <div class="form-group">
+                             <label for="city" class=" mt-2">Enter City</label>
+                             <input type="text"  class="form-control form-control border border-dark text-black" name="city" id="city" aria-describedby="emailHelp">
+                             <small id="eh" class="form-text  ">Will provides weather of input city</small>
+                         </div>
+                         <button type="submit" class="btn btn-success ">Submit</button>
+                        </form>
+
+             </div>
+              <div class="container w-25 mt-4" >
+                  {% if temp and humidity and condition and icon %}
+
+                        <div class="card mb-0 bg1 shadow-lg p-3 bg-white rounded" style="max-width: 540px;">
+                            <div class="row no-gutters">
+                                 <div class="col-md-4">
+                                     <img src="http://openweathermap.org/img/w/{{icon}}.png" class="card-img" alt="...">
+                                 </div>
+                                <div class="col-md-8 ">
+                                    <div class="card-body ">
+                                         <h5 class="card-title mb-0">{{city}}</h5>
+                                          <h6 class="card-text mb-0">{{condition}}</h6>
+                                          <h6 class="card-text mb-0">Humidity:{{humidity}}</h6>
+                                          <h6 class="card-text mb-0">Temperature:{{temp}}°C</h6>
+                                    </div>
+                                </div>
+                            </div>
+                         </div>
+                  {% endif %}
+              </div>
+
+
+
+
+<!--
+input[type="text"]
+{
+    background: transparent;
+
+}
+-->
+{% endblock %}
+{% block js %}
+{% endblock %}

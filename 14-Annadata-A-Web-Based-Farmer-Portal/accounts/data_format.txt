@@ -1,0 +1,12 @@
+<bound method Series.unique of 0         Arhar/Tur
+1             Bajra
+2       Castor seed
+3            Cotton
+4         Groundnut
+           ...     
+4480          Jowar
+4481          Maize
+4482          Wheat
+4483      Groundnut
+4484      Sugarcane
+Name: Crop, Length: 4485, dtype: object>

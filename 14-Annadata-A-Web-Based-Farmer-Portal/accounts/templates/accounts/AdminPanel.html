@@ -1,0 +1,53 @@
+{% extends 'accounts/AdminPage.html' %}
+{% block css %}
+{% endblock %}
+{% block body %}
+<div class="container w-50 mt-4">
+  <div class="row">
+    <div class="col-sm">
+      <form class="shadow-lg p-3 mb-5 bg-white rounded" action="adminpanel" method="post">
+        {% csrf_token %}
+           <h5 class="card-title">Add Schemes Information</h5>
+  <div class="form-group">
+    <label for="tos" >Title of Scheme</label>
+    <input type="text" class="form-control " id="tos" name="tos" required>
+  </div>
+  <div class="form-group">
+    <label for="dos" >Link For Scheme</label>
+    <textarea class="form-control" id="dos"  name="dos" rows="3" required></textarea>
+  </div>
+  <div class="form-group">
+    <label for="link" >Link for Scheme</label>
+    <input type="text" class="form-control " id="link" name="link" required>
+  </div>
+        <div class="form-group">
+    <label for="img" >Select Image</label>
+    <input type="file" class="form-control " id="img" name="img" required>
+  </div>
+        <button type="submit" class="btn btn-success">ADD Scheme</button>
+</form>
+    </div>
+     <div class="col-sm offset-1">
+      <form action="addcrop" method='post' class="shadow-lg p-3 mb-5 bg-white rounded">
+          {% csrf_token %}         <h5 class="card-title">Add Crop Information</h5>  <div class="form-group">
+    <label for="cropname">Enter Crop Name</label>
+   <input type="text" class="form-control" id="cropname" name="cropname" aria-describedby="emailHelp" required>
+  </div>
+  <div class="form-group">
+   <label for="cropinfo">Enter Crop Information</label>
+   <input type="text" class="form-control" id="cropinfo" name="cropinfo" required>
+ </div>
+ <div class="form-group">
+   <label for="cropimg">Select Crop Image</label>
+    <input type="file" class="form-control" id="cropimg" name="cropimg" required>
+ </div>
+ <button type="submit" class="btn btn-success">Submit Crop Info</button>
+</form>
+    </div>
+  
+
+  </div>
+</div>
+{% endblock %}
+{% block js %}
+{% endblock %}

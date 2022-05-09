@@ -1,0 +1,9 @@
+District,Temp,Rain,Humidity,Wind-speed,Crop,Pest
+Parbhani,27,897.0,79,6.47,Banana,1
+Parbhani,31,897.0,64,6.41,Cotton,2
+Parbhani,31,897.0,64,6.41,Maize,3
+Ahmednagar,28,573.2,70,8.23,Potato,4
+Ahmednagar,28,573.2,70,8.23,Sugarcane,5
+Parbhani,31,897.0,64,6.41,Maize,6
+Ahmednagar,28,573.2,70,8.23,Rice,7
+Ahmednagar,29,573.2,68,8.71,Wheat,8
